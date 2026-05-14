@@ -295,7 +295,7 @@ utils/helpers.py                            schemas/{task,user,category}_schema.
 | Error handling centralizado | ✅ `register_error_handlers` | ✅ middleware Express | ✅ `register_error_handlers` |
 | Entry point claro | ✅ `app.py` | ✅ `src/server.js` | ✅ `app.py` |
 | Aplicação inicia sem erros | ✅ | ✅ | ✅ |
-| Endpoints originais respondem | ✅ 18/18 | ✅ 3/3 | ✅ 22/22 + 1 novo `/login` melhorado |
+| Endpoints originais respondem | ✅ 17/17 (2 endpoints `/admin/*` CRITICAL removidos de propósito) | ✅ 3/3 | ✅ 22/22 |
 
 ### Smoke-test logs (rodados localmente após a refatoração)
 
