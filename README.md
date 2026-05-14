@@ -165,21 +165,31 @@ Esses cobrem os warnings que aparecem nos três projetos.
 
 ### Como garanti que é agnóstica de tecnologia
 
-1. **Heurísticas de detecção indiretas** — o `analysis-heuristics.md` não
-   busca `app.py`/`server.js` específicos; busca o **manifest** (`requirements.txt`/
-   `package.json`) e o **conteúdo** de imports. Isso permite reconhecer
-   FastAPI, Flask, Express, Fastify sem alterar a skill.
-2. **Anti-patterns descritos por sinais semânticos** — "SQL injection" não
-   é "regex em `models.py`"; é "concatenação ou template-string em chamada a
-   `execute`/`run`/`query`". Os comandos grep no catálogo são genéricos.
-3. **Playbook com exemplos paralelos** — cada transformação tem antes/depois
-   tanto em Python quanto em Node.js. Quando a skill encontrar Go ou Ruby
-   amanhã, os princípios continuam aplicáveis.
-4. **Estrutura MVC alvo definida por papéis, não por nomes de arquivo** —
-   `mvc-guidelines.md` define o que cada camada **faz**, não onde mora. O
-   exemplo de árvore é referencial.
-5. **Testado nos 3 projetos** — a skill foi escrita em paralelo à análise dos
-   3 projetos, garantindo que padrões só de Python não eram cravados no SKILL.md.
+A maior preocupação foi não deixar nada específico de Python ou de Node entrar
+no `SKILL.md`. Algumas decisões ajudaram nisso.
+
+A detecção de stack não depende de nomes de arquivo fixos. Em vez de procurar
+um `app.py` ou um `server.js`, o `analysis-heuristics.md` olha o manifest de
+dependências (`requirements.txt`, `package.json`) e os imports do código. Com
+isso a skill reconhece Flask, FastAPI, Express ou Fastify sem precisar de
+ajuste.
+
+Os anti-patterns são descritos pelo que são, não por onde costumam aparecer.
+"SQL injection" não é "uma regex no `models.py`": é concatenação de string ou
+template literal dentro de uma chamada a `execute`, `run` ou `query`. Os
+comandos de detecção do catálogo valem para qualquer arquivo.
+
+O playbook traz os exemplos de antes/depois em Python e em Node lado a lado,
+então quem aplica a transformação tem referência nas duas linguagens, e os
+princípios continuam valendo se aparecer um projeto em outra stack.
+
+A estrutura MVC alvo é definida pelo papel de cada camada, não por nomes de
+pasta. O `mvc-guidelines.md` descreve o que um controller faz, o que um model
+faz, e por aí vai; a árvore de diretórios que aparece lá serve só de exemplo.
+
+Por último, escrevi a skill em paralelo à análise dos três projetos, de
+propósito, para não acabar fixando no `SKILL.md` alguma suposição que só
+valeria para um deles.
 
 ### Desafios e como resolvi
 
