@@ -5,7 +5,7 @@
 > projeto para o padrão MVC — preservando os endpoints e validando o
 > resultado. Demonstrada em 3 projetos: 2 Python/Flask e 1 Node.js/Express.
 
-**Branch de trabalho:** `claude/code-audit-mvc-skill-FG7Gx`
+**Branch:** `main`
 
 Estrutura entregue:
 
