@@ -1,7 +1,7 @@
 {
   "name": "ecommerce-api-legacy",
   "version": "1.0.0",
-  "description": "LMS API com fluxo de checkout, refatorada para MVC pela skill refactor-arch.",
+  "description": "LMS API com fluxo de checkout, organizada no padrão MVC.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js"

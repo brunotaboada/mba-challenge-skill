@@ -1,7 +1,7 @@
 """Script para popular o banco com dados iniciais.
 
-Atualizado pela skill: usa bcrypt (via User.set_password) em vez de MD5; senhas
-fortes (mínimo 8 chars); datetime timezone-aware.
+Cria usuários (senhas via bcrypt em User.set_password), categorias e tasks
+de exemplo. Rode antes do primeiro boot da API.
 """
 from datetime import datetime, timedelta, timezone
 

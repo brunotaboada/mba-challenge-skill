@@ -1,14 +1,9 @@
-"""Composition root para a API de E-commerce.
+"""Composition root da API de E-commerce.
 
-Refatorado pela skill `refactor-arch`:
-- SECRET_KEY, DEBUG e ALLOWED_ORIGINS via env (src/config/settings.py)
-- SQL parametrizado em todas as queries (src/models/*)
-- Senhas com bcrypt (src/models/usuario.py)
-- Senha removida da resposta da API
-- /admin/query e /admin/reset-db REMOVIDOS (eram SQLi e DB-wipe sem auth)
-- Lógica de pedido extraída para src/services/pedido_service.py com transação
-- Error handler centralizado (src/middlewares/error_handler.py)
-- Listagens de pedidos com JOIN único (sem N+1)
+Cria a app Flask, lê a configuração do ambiente, registra os blueprints
+(produtos, usuários, pedidos) e o error handler centralizado. Toda a regra
+de negócio vive em `src/services/`, o acesso a dados em `src/models/` e a
+configuração em `src/config/`.
 """
 import logging
 

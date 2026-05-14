@@ -1,19 +1,9 @@
-"""Composition root para o Task Manager API.
+"""Composition root da API de Task Manager.
 
-Refatorado pela skill `refactor-arch`:
-- SECRET_KEY, DEBUG, ALLOWED_ORIGINS e creds SMTP movidos para env (config/settings.py).
-- Senhas com bcrypt (substitui MD5 sem salt).
-- to_dict() do User não expõe mais a senha.
-- JWT real assinado com SECRET_KEY (substitui o "fake-jwt-token-N").
-- datetime.utcnow → datetime.now(timezone.utc).
-- Query.get → db.session.get.
-- Lógica de negócio movida das rotas para services/.
-- Lógica de overdue centralizada em Task.is_overdue() (era duplicada 4×).
-- Validação via marshmallow schemas (substitui validação ad-hoc).
-- Bare except: removido — error handler centralizado em middlewares/error_handler.py.
-- N+1 em listagem de tasks e relatórios eliminado com joinedload().
-- Blueprint de categorias extraído de report_routes para category_routes.
-- NotificationService recebe credenciais via env, com flag NOTIFICATIONS_ENABLED.
+Cria a app Flask, lê a configuração do ambiente, inicializa o SQLAlchemy e
+registra os blueprints (tasks, users, categories, reports, auth) e o error
+handler centralizado. A regra de negócio vive em `services/`, a validação
+de payload em `schemas/` e a configuração em `config/`.
 """
 import logging
 
