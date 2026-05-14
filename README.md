@@ -433,7 +433,7 @@ curl -X POST http://localhost:5000/login \
 # (verificar: token JWT real; senha não vaza)
 ```
 
-### Sinais de "passou na validação"
+### Observações durante os Testes
 
 - `GET /` ou `GET /health` responde 200 sem segredo no body.
 - Listagens de usuário **não** trazem campo `senha`/`password`.
